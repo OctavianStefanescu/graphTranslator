@@ -37,10 +37,10 @@ for line in Lines:
 
     if (old_d != d or old_s != s) and overall_t != 0:
         links += 1
-        f.write("\n       " + str(links) + " : {" +
-                "\n           source : " + str(old_s) + "," +
-                "\n           target : " + str(old_d) + "," +
-                "\n           color : " + colors[overall_t] +
+        f.write("\n       {" +
+                "\n           source: " + str(old_s) + "," +
+                "\n           target: " + str(old_d) + "," +
+                "\n           color: " + colors[overall_t] +
                 "\n       },")
         overall_t = 0
     overall_t += t
@@ -51,8 +51,8 @@ f.write("\n   ]," +
         "\n   nodes: [")
 
 for i in range(nodes):
-    f.write("\n       " + str(i) + " : {" +
-            "\n           id : " + str(i + 1) + "," +
+    f.write("\n       {" +
+            "\n           id: " + str(i + 1) + "," +
             "\n       },")
 
 f.write("\n   ]," +
