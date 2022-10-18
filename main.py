@@ -40,7 +40,7 @@ for line in Lines:
         f.write("\n       {" +
                 "\n           source: " + str(old_s) + "," +
                 "\n           target: " + str(old_d) + "," +
-                "\n           color: " + colors[overall_t] +
+                "\n           color: \"" + colors[overall_t] + "\""
                 "\n       },")
         overall_t = 0
     overall_t += t
