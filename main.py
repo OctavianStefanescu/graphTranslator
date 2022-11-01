@@ -20,8 +20,11 @@ nodes = 0
 links = -1
 
 f = open("graph.out", "w")
-f.write("root : {" +
-        "\n  links: [")
+f.write("graph ER {\n" +
+        "   fontname=\"Helvetica,Arial,sans-serif\"\n" +
+        "   node [fontname=\"Helvetica,Arial,sans-serif\"]\n" +
+        "   edge [fontname=\"Helvetica,Arial,sans-serif\"]\n" +
+        "   layout=neato\n")
 f.close()
 
 f = open("graph.out", "a")
@@ -37,24 +40,10 @@ for line in Lines:
 
     if (old_d != d or old_s != s) and overall_t != 0:
         links += 1
-        f.write("\n       {" +
-                "\n           source: " + str(old_s) + "," +
-                "\n           target: " + str(old_d) + "," +
-                "\n           color: \"" + colors[overall_t] + "\""
-                "\n       },")
+        f.write("   " + str(old_s) + " -- " + str(old_d) + " [color=\"" + colors[overall_t] + "\"];\n")
         overall_t = 0
     overall_t += t
     old_s = s
     old_d = d
-
-f.write("\n   ]," +
-        "\n   nodes: [")
-
-for i in range(nodes):
-    f.write("\n       {" +
-            "\n           id: " + str(i + 1) + "," +
-            "\n       },")
-
-f.write("\n   ]," +
-        "\n},")
+f.write("}")
 f.close()
